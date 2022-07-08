@@ -1,20 +1,21 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView, Image, Button } from "react-native";
-import { TouchableNativeFeedback } from "react-native";
+import { StyleSheet, View, Alert, Button } from "react-native";
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Button color="orange" title="Click me" onPress={() => console.log('Button clicked')}/>
-    </SafeAreaView>
+    <View style={[ styles.container, containerStyle ]}>
+      <Button  title="Click me" onPress={() => console.log("Press me")} />
+    </View>
   );
 }
+
+const containerStyle = { flex:1 , backgroundColor: "orange" };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#709",
     justifyContent: "center",
     alignItems: "center",
   },
