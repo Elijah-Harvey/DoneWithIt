@@ -1,35 +1,35 @@
 import React from "react";
-import { useDimensions, useDeviceOrientation } from "@react-native-community/hooks";
-import {
-  Dimensions,
-  StyleSheet,
-  View,
-  Alert,
-  Button,
-  Platform,
-  StatusBar,
-} from "react-native";
+import { View } from "react-native";
 
 export default function App() {
-  const {landscape} = useDeviceOrientation();
-
   return (
-    <View style={styles.container}>
+    <View
+      style={{
+        backgroundColor: "#fff",
+        flex: 1,
+      }}
+    >
       <View
         style={{
-          backgroundColor: "#111",
-          width: "100%",
-          height: landscape ? '100%' : "30%"
+          backgroundColor: "dodgerblue",
+          width: 100,
+          height: 100,
         }}
-      ></View>
+      />
+      <View
+        style={{
+          backgroundColor: "gold",
+          width: 100,
+          height: 100,
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: "tomato",
+          width: 100,
+          height: 100,
+        }}
+      />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#709",
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : "",
-  },
-});
