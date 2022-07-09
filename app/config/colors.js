@@ -3,4 +3,5 @@ export default {
   secondary: "#4ecdc4",
   black: "#000",
   white: "#fff",
+  meduim: "#6e6969",
 };
