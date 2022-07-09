@@ -2,6 +2,7 @@ import React from "react";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import { Text, View } from "react-native";
+import AppText from "./app/components/AppText";
 
 export default function App() {
   return (
@@ -12,20 +13,7 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <Text
-        style={{
-          // fontFamily: "Roboto",
-          fontSize: 30,
-          fontStyle: "italic",
-          fontWeight: "600",
-          color: "tomato",
-          textTransform: "capitalize",
-          textAlign: "center",
-          lineHeight: 30,
-        }}
-      >
-        blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-      </Text>
+      <AppText>blah blah blah blah</AppText>
     </View>
   );
 }
