@@ -29,13 +29,17 @@ function AppPicker({ icon, items, onSelectItem, placeholder, selectedItem }) {
               style={styles.icon}
             />
           )}
-          <AppText style={styles.text}>
-            {selectedItem ? selectedItem.label : placeholder}
-          </AppText>
+          {selectedItem ? (
+            <AppText style={styles.text}>{selectedItem.label}</AppText>
+          ) : (
+            <AppText style={styles.placeholder}>{placeholder}</AppText>
+          )}
+
+        
           <MaterialCommunityIcons
             name="chevron-down"
             size={20}
-            color={defaultStyles.colors.medium}
+            color={defaultStyles.colors.meduim}
           />
         </View>
       </TouchableWithoutFeedback>
@@ -70,6 +74,10 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginRight: 10,
+  },
+  placeholder: {
+    color: defaultStyles.colors.meduim,
+    flex:1,
   },
   text: {
     flex: 1,
