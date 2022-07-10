@@ -6,12 +6,12 @@ import AppButton from "./../components/AppButton";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import AppText from "../components/AppText/AppText";
-import ErrorMessage from './../components/ErrorMessage';
+import ErrorMessage from "./../components/ErrorMessage";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password"),
-})
+});
 
 function LoginScreen(props) {
   return (
@@ -23,30 +23,32 @@ function LoginScreen(props) {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        {({ handleChange, handleSubmit, errors }) => (
+        {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
           <>
             <AppTextInput
               autoCapitalize="none"
               autoCorrect={false}
               keyboardtype="email-address"
+              onBlur={() => setFieldTouched("email")}
               onChangeText={handleChange("email")}
               icon="email"
               placeholder="Email"
               textContentType="emailAddress"
             />
-            <ErrorMessage error={errors.email}/>
-            <AppText style={{ color: 'red'}}>{errors.email}</AppText>
+            <ErrorMessage error={errors.email} visible={touched.email} />
+            <AppText style={{ color: "red" }}>{errors.email}</AppText>
             <AppTextInput
               autoCapitalize="none"
               autoCorrect={false}
               icon="lock"
+              onBlur={() => setFieldTouched("password")}
               onChangeText={handleChange("password")}
               placeholder="Password"
               secureTextEntry
               textContentType="password"
             />
-            <AppText style={{ color: 'red'}}>{errors.password}</AppText>
-            <ErrorMessage error={errors.password}/>
+            <AppText style={{ color: "red" }}>{errors.password}</AppText>
+            <ErrorMessage error={errors.password} visible={touched.password} />
             <AppButton title="Login" onPress={handleSubmit} />
           </>
         )}
