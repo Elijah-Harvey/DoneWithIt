@@ -19,8 +19,8 @@ function AppPicker({
   items,
   numberOfColumns = 1,
   onSelectItem,
-  PickerItemComponent = PickerItem,
   placeholder,
+  PickerItemComponent = PickerItem,
   selectedItem,
   width = "100%",
 }) {
@@ -34,7 +34,7 @@ function AppPicker({
             <MaterialCommunityIcons
               name={icon}
               size={20}
-              color={defaultStyles.colors.meduim}
+              color={defaultStyles.colors.medium}
               style={styles.icon}
             />
           )}
@@ -47,7 +47,7 @@ function AppPicker({
           <MaterialCommunityIcons
             name="chevron-down"
             size={20}
-            color={defaultStyles.colors.meduim}
+            color={defaultStyles.colors.medium}
           />
         </View>
       </TouchableWithoutFeedback>
