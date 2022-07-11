@@ -1,16 +1,15 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
-import CategoryPickerItem from "../components/CategoryPickerItem";
-import FormImagePicker from "../components/forms/FormImagePicker";
-
 
 import {
   Form,
   FormField,
   FormPicker as Picker,
   SubmitButton,
-} from "../components/lists";
+} from "../components/forms";
+import CategoryPickerItem from "../components/CategoryPickerItem";
+import FormImagePicker from "../components/forms/FormImagePicker";
 
 import Screen from "../components/Screen";
 import useLocation from "../hooks/useLocation";
@@ -81,7 +80,7 @@ const categories = [
 ];
 
 function ListingEditScreen(props) {
-  const location = useLocation()
+  const location = useLocation();
 
   return (
     <Screen style={styles.container}>
