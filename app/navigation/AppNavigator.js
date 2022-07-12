@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -7,10 +7,13 @@ import FeedNavigator from "./FeedNavigator";
 import AccountNavigator from "./AccountNavigator";
 import NewListingButton from "./NewListingButton";
 import routes from "./routes";
+import useNotifications from "../hooks/useNotifications";
 
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
+  useNotifications()
+
   return (
     <Tab.Navigator>
       <Tab.Screen
@@ -18,8 +21,9 @@ const AppNavigator = () => {
         component={FeedNavigator}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" size={size} color={color} />
+            <MaterialCommunityIcons name="home" color={color} size={size} />
           ),
+          headerShown: false,
         }}
       />
       <Tab.Screen
@@ -34,10 +38,11 @@ const AppNavigator = () => {
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
               name="plus-circle"
-              size={size}
               color={color}
+              size={size}
             />
           ),
+          headerShown: false,
         })}
       />
       <Tab.Screen
@@ -45,8 +50,9 @@ const AppNavigator = () => {
         component={AccountNavigator}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="account" size={size} color={color} />
+            <MaterialCommunityIcons name="account" color={color} size={size} />
           ),
+          headerShown: false,
         }}
       />
     </Tab.Navigator>

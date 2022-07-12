@@ -27,6 +27,9 @@
     "web": {
       "favicon": "./app/assets/favicon.png"
     },
-    "description": "A marketplace for selling stuff you don't need anymore"
+    "description": "A marketplace for selling stuff you don't need anymore",
+    "notification": {
+      "iosDisplayInForeground": true
+    }
   }
 }
