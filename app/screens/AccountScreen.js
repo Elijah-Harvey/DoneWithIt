@@ -1,14 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
-import authStorage from "../auth/storage";
 import Icon from "../components/Icon";
 
+import useAuth from "../auth/useAuth";
 import ListItem from "../components/lists/ListItem";
 import ListItemSeparatorComponent from "../components/lists/ListItemSeparator";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
 import routes from "../navigation/routes";
-import AuthContext from './../auth/context';
 
 const menuItems = [
   {
@@ -24,17 +23,12 @@ const menuItems = [
       name: "email",
       backgroundColor: colors.secondary,
     },
-    targetScreen: routes.MESSAGES
+    targetScreen: routes.MESSAGES,
   },
 ];
 
 function AccountScreen({ navigation }) {
-  const { user, setUser } = useContext(AuthContext)
-
-  const handleLogOut =() => {
-    setUser(null);
-    authStorage.removeToken()
-  }
+  const { user, logOut } = useAuth();
 
   return (
     <Screen style={styles.screen}>
@@ -64,8 +58,10 @@ function AccountScreen({ navigation }) {
           )}
         />
       </View>
-      <ListItem title="Logout" IconComponent={<Icon name="logout" backgroundColor="#ffe66d"/>}
-      onPress={handleLogOut}
+      <ListItem
+        title="Logout"
+        IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
+        onPress={() => logOut()}
       />
     </Screen>
   );
