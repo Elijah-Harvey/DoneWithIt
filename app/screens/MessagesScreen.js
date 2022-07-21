@@ -44,6 +44,7 @@ function MessagesScreen(props) {
               <ListItemDeleteAction onPress={() => handleDelete(item)} />
             )}
           />
+          
         )}
         ItemSeparatorComponent={ListItemSeparator}
         refreshing={refreshing}

@@ -17,6 +17,7 @@ function ListItemDeleteAction({ onPress }) {
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.danger,
